@@ -37,7 +37,7 @@ const Trending = async () => {
                     <p className="text-sm text-gray-500 font-medium">
                       {course.instructor}
                     </p>
-                    <p className="text-xs">{course.duration}</p>
+                    <p className="text-xs">{course.duration} hours </p>
                   </div>
                   <span className="text-xs font-bold bg-white px-2 py-1 rounded text-sky-600 border border-sky-100">
                     ★ {course.rating}

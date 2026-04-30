@@ -7,15 +7,13 @@ import { IoMdTime } from "react-icons/io";
 const ServicesCard = ({ course }) => {
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-      {/* Image
-      <div className="relative w-full aspect-square">
-        <Image
+      <div className="h-40 w-full overflow-hidden p-4 bg-sky-50">
+        <img
           src={course.image}
           alt={course.title}
-          fill
-          className="object-cover"
+          className="w-full h-full rounded-lg object-cover group-hover:scale-110 transition-transform duration-500"
         />
-      </div>   */}
+      </div>
 
       {/* Content */}
       <div className="p-5 space-y-3">
@@ -31,7 +29,7 @@ const ServicesCard = ({ course }) => {
 
         {/* Instructor */}
         <p className="text-sm text-gray-500">
-          by 
+          by
           <span className="font-medium text-gray-700">{course.instructor}</span>
         </p>
 
