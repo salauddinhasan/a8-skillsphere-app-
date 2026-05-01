@@ -98,7 +98,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/courses"
+                href="/all-courses"
                 className="hover:text-blue-600 transition block"
                 onClick={() => setMenuOpen(false)}
               >

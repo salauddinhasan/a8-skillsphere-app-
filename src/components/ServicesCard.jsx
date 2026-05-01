@@ -65,7 +65,7 @@ const ServicesCard = ({ course }) => {
           </div>
 
           <Link
-            href={`/courses/${course.id}`}
+            href={`/all-courses/${course.id}`}
             className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition"
           >
             View Details
