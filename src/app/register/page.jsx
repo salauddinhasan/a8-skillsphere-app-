@@ -19,39 +19,46 @@ const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+ const onSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const image = e.target.image.value;
-    const password = e.target.password.value;
+  // আগে console করে দেখো কী আসছে
+  const formData = new FormData(e.currentTarget);
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const image = formData.get("image");
+  const password = formData.get("password");
 
-    const { error } = await authClient.signUp.email({
-      name,
-      email,
-      password,
-      image,
-      callbackURL: "/login",
-    });
+  console.log({ name, email, image, password }); // ← এটা দেখো
 
-    if (error) {
-      addToast({
-        title: "Registration Failed",
-        description: error.message || "Something went wrong!",
-        color: "danger",
-      });
-    } else {
-      addToast({
-        title: "Account Created!",
-        description: "Please login to continue.",
-        color: "success",
-      });
-      router.push("/login");
-    }
-    setLoading(false);
-  };
+  const { data, error } = await authClient.signUp.email({
+    name,
+    email,
+    password,
+    image: image || "",
+  });
+
+  console.log("data:", data);
+  console.log("error:", error);
+
+  if (error) {
+    alert(error.message)
+    // addToast({
+    //   title: "Registration Failed",
+    //   description: error.message || "Something went wrong!",
+    //   color: "danger",
+    // });
+  } else {
+    // addToast({
+    //   title: "Account Created!",
+    //   description: "Please login to continue.",
+    //   color: "success",
+    // });
+    router.push("/login");
+  }
+  setLoading(false);
+};
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] py-10 px-4">
