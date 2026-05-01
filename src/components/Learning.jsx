@@ -43,9 +43,7 @@ const LearningPage = async () => {
                   <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">{course.description}</p>
                 </div>
 
-                <p className="bg-yellow-50 rounded-full w-20 flex justify-center">
-                  Trending
-                </p>
+                 
               </div>
             </div>
           ))}
