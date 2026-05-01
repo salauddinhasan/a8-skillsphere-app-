@@ -16,37 +16,46 @@ const LearningPage = async () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        {courses
-          ?.sort((a, b) => b.rating - a.rating)
-          .slice(0, 4)
-          .map((course) => (
-            <div
-              key={course.id}
-              className="group flex items-center gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:bg-sky-50"
-            >
-              <div className="text-4xl font-black text-sky-200 group-hover:text-sky-500 transition-colors">
-                <div className="h-40 w-full overflow-hidden p-4 ">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full rounded-lg object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-
-              <div className="flex-1">
-                <h4 className="text-lg font-bold text-gray-800 group-hover:text-sky-700 leading-tight mb-1">
-                  {course.title}
-                </h4>
-
-                <div>
-                  <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">{course.description}</p>
-                </div>
-
-                 
+        {courses.slice(2, 6).map((course) => (
+          <div
+            key={course.id}
+            className="group flex items-center gap-6 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:border-sky-200 cursor-pointer"
+          >
+            {/* লেফট সাইড: ইমেজ এবং ইনডেক্স */}
+            <div className="relative flex-shrink-0">
+              <div className="h-32 w-32 overflow-hidden rounded-xl border-2 border-transparent group-hover:border-sky-100 transition-all">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
             </div>
-          ))}
+
+            <div className="flex-1 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded uppercase tracking-wider">
+                  {course.category}
+                </span>
+                <span className="text-[10px] text-gray-400">• 4 min read</span>
+              </div>
+
+              <h4 className="text-xl font-bold text-gray-800 group-hover:text-sky-600 leading-tight transition-colors">
+                {course.title}
+              </h4>
+
+              <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed italic">
+                Expert tip: {course.description}
+              </p>
+
+              <div className="pt-1">
+                <span className="text-xs font-bold text-sky-500 group-hover:underline flex items-center gap-1">
+                  Explore Guide →
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import TopInstructors from "@/components/Instructors";
 import LearningPage from "@/components/Learning";
 import Services from "@/components/Services";
 import Trending from "@/components/Trending";
@@ -10,6 +11,7 @@ export default function Home() {
        <Services/>
        <Trending/>
        <LearningPage/>
+       <TopInstructors/>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const Services = async () => {
 
   return (
     <div className="max-w-7xl mx-auto bg-warning/5 py-10 rounded-l-2xl mt-5">
-      <div className="mb-8 border-l-4 border-sky-500 pl-4 ">
+      <div className=" mb-8 border-l-4 border-sky-500 pl-4">
         <h2 className="text-3xl font-bold text-gray-800">Popular Courses</h2>
       </div>
 
