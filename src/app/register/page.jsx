@@ -13,52 +13,58 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React, { useState } from "react";
-import { addToast } from "@heroui/toast";
+import { IoLogoGoogle } from "react-icons/io";
+import { GrGoogle } from "react-icons/gr";
 
 const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
- const onSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-  // আগে console করে দেখো কী আসছে
-  const formData = new FormData(e.currentTarget);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const image = formData.get("image");
-  const password = formData.get("password");
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const image = formData.get("image");
+    const password = formData.get("password");
 
-  console.log({ name, email, image, password }); // ← এটা দেখো
+    const { data, error } = await authClient.signUp.email({
+      name,
+      email,
+      password,
+      image: image || "",
+    });
 
-  const { data, error } = await authClient.signUp.email({
-    name,
-    email,
-    password,
-    image: image || "",
-  });
+    console.log("data:", data);
+    console.log("error:", error);
 
-  console.log("data:", data);
-  console.log("error:", error);
+    if (error) {
+      alert(error.message);
+      // addToast({
+      //   title: "Registration Failed",
+      //   description: error.message || "Something went wrong!",
+      //   color: "danger",
+      // });
+    } else {
+      // addToast({
+      //   title: "Account Created!",
+      //   description: "Please login to continue.",
+      //   color: "success",
+      // });
+      router.push("/all-courses");
+    }
+    setLoading(false);
+  };
 
-  if (error) {
-    alert(error.message)
-    // addToast({
-    //   title: "Registration Failed",
-    //   description: error.message || "Something went wrong!",
-    //   color: "danger",
-    // });
-  } else {
-    // addToast({
-    //   title: "Account Created!",
-    //   description: "Please login to continue.",
-    //   color: "success",
-    // });
-    router.push("/login");
-  }
-  setLoading(false);
-};
+  // google funtion
+  const handleGoogleLogin = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] py-10 px-4">
@@ -136,6 +142,24 @@ const RegisterPage = () => {
             size="lg"
           >
             Create Account
+          </Button>
+
+          {/* /* Divider */}
+          <div className="flex items-center my-6 gap-2">
+            <div className="h-[1px] bg-gray-200 flex-grow"></div>
+            <span className="text-xs text-gray-400 uppercase">or</span>
+            <div className="h-[1px] bg-gray-200 flex-grow"></div>
+          </div>
+          {/* Google Login */}
+          <Button
+            variant="outline"
+            onPress={handleGoogleLogin}
+            className="w-full font-medium"
+            size="lg"
+            startContent={<IoLogoGoogle className="text-xl" />}
+          >
+            <GrGoogle />
+            Continue with Google
           </Button>
         </Form>
 

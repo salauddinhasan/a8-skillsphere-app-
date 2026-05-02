@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { IoLogoGoogle } from "react-icons/io";
+import { GrGoogle } from "react-icons/gr";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
@@ -50,12 +51,12 @@ const LoginPage = () => {
     setLoading(false);
   };
 
-//   const handleGoogleLogin = async () => {
-//     await authClient.signIn.social({
-//       provider: "google",
-//       callbackURL: "/",
-//     });
-//   };
+    const handleGoogleLogin = async () => {
+      await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
+    };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] py-10 px-4">
@@ -114,12 +115,13 @@ const LoginPage = () => {
 
         {/* Google Login */}
         <Button
-          variant="bordered"
-        //   onPress={handleGoogleLogin}
+          variant="outline"
+            onPress={handleGoogleLogin}
           className="w-full font-medium"
           size="lg"
           startContent={<IoLogoGoogle className="text-xl" />}
         >
+          <GrGoogle />
           Continue with Google
         </Button>
 

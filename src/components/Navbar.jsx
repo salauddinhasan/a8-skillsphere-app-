@@ -1,14 +1,24 @@
 "use client";
+ 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useState } from "react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const user = null;
+  // const user = null;
+  const userData = authClient.useSession();
+  const user = userData.data?.user
+ 
+  const handleBtnLogOut = async() => {
+    await authClient.signOut();
+    alert('Logout successful');
+  }
+
 
   return (
     <nav className="bg-white shadow-md px-6 py-4 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
           <h3 className="text-xl font-bold text-blue-600">
@@ -44,7 +54,7 @@ const Navbar = () => {
                 alt="avatar"
                 className="w-9 h-9 rounded-full object-cover border-2 border-blue-500"
               />
-              <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+              <button onClick={handleBtnLogOut} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
                 Logout
               </button>
             </>
@@ -122,7 +132,7 @@ const Navbar = () => {
               <>
                 <div className="flex items-center gap-3">
                   <img
-                    src={user.image || "/default-avatar.png"}
+                    src={user?.image || "/default-avatar.png"}
                     alt="avatar"
                     className="w-9 h-9 rounded-full object-cover border-2 border-blue-500"
                   />
