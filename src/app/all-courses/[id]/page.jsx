@@ -1,4 +1,7 @@
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 import { FaClock, FaStar, FaUser } from "react-icons/fa";
 import { LuTarget } from "react-icons/lu";
@@ -6,15 +9,14 @@ import { LuTarget } from "react-icons/lu";
 const CoursesDetails = async ({ params }) => {
   const { id } = await params;
 
- // Protected Route — login check
-  // const session = await auth.api.getSession({
-  //   headers: await headers(),
-  // });
+  //  Protected Route — login check
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
-  // if (!session) {
-  //   redirect(`/login?callbackUrl=/all-courses/${id}`);
-  // }
-   
+  if (!session) {
+   redirect(`/login?callbackUrl=/all-courses/${id}`);
+  }
 
   const res = await fetch(
     "https://a8-skillsphere-app-mjfx.vercel.app/data.json",
