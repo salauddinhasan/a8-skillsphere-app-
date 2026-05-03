@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
 
 const ServicesCard = ({ course }) => {
+  console.log(course)
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
       <div className="h-40 w-full overflow-hidden p-4 bg-sky-50">

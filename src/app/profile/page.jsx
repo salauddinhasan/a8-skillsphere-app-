@@ -83,11 +83,7 @@ const ProfilePage = () => {
                 Member Since
               </span>
               <span className="text-sm font-bold text-gray-800">
-                {new Date(user.createdAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
+                {user.createdAt ? new Date(user.createdAt).toISOString().split("T")[0] : "N/A"}
               </span>
             </li>
           </ul>
