@@ -3,7 +3,7 @@ import React from "react";
 import { FaLinkedin, FaGithub, FaStar } from "react-icons/fa";
 
 const TopInstructors = async () => {
-  const res = await fetch("http://localhost:3000/instructors.json");
+  const res = await fetch("https://a8-skillsphere-app-mjfx.vercel.app/instructors.json");
   const instructors = await res.json();
 
   return (

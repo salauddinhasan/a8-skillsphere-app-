@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 const LearningPage = async () => {
-  const res = await fetch("http://localhost:3000/data.json", {
+  const res = await fetch("https://a8-skillsphere-app-mjfx.vercel.app/data.json", {
     next: { revalidate: 3600 },
   });
   const courses = await res.json();
