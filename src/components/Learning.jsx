@@ -1,12 +1,10 @@
+import Image from "next/image";
 import React from "react";
 
 const LearningPage = async () => {
-  const res = await fetch(
-    "http://localhost:3000/data.json",
-    {
-      next: { revalidate: 3600 },
-    },
-  );
+  const res = await fetch("http://localhost:3000/data.json", {
+    next: { revalidate: 3600 },
+  });
   const courses = await res.json();
 
   return (
@@ -21,12 +19,14 @@ const LearningPage = async () => {
             key={course.id}
             className="group flex items-center gap-6 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:border-sky-200 cursor-pointer"
           >
-            {/* লেফট সাইড: ইমেজ এবং ইনডেক্স */}
             <div className="relative flex-shrink-0">
               <div className="h-32 w-32 overflow-hidden rounded-xl border-2 border-transparent group-hover:border-sky-100 transition-all">
-                <img
+                <Image
                   src={course.image}
                   alt={course.title}
+                  width={150}
+                  height={150}
+                  loading="eager"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>

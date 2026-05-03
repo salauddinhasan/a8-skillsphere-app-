@@ -1,6 +1,7 @@
 "use client";
- 
+
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -8,13 +9,12 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   // const user = null;
   const userData = authClient.useSession();
-  const user = userData.data?.user
- 
-  const handleBtnLogOut = async() => {
+  const user = userData.data?.user;
+
+  const handleBtnLogOut = async () => {
     await authClient.signOut();
     // alert('Logout successful');
-  }
-
+  };
 
   return (
     <nav className="bg-white shadow-md px-6 py-3 sticky top-0 z-50">
@@ -34,7 +34,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/all-courses" className="hover:text-blue-600 transition">
+            <Link
+              href="/all-courses"
+              className="hover:text-blue-600 transition"
+            >
               Courses
             </Link>
           </li>
@@ -49,12 +52,18 @@ const Navbar = () => {
         <div className="hidden md:flex gap-4 items-center">
           {user ? (
             <>
-              <img
-                src={user.image || "/default-avatar.png"}
-                alt="avatar"
+              <Image
+                src={user.image || "https://placehold.co/40x40?text=U"}
+                alt={user.name || "User"}
+                width={40}
+                height={40}
+                loading="eager"
                 className="w-9 h-9 rounded-full object-cover border-2 border-blue-500"
               />
-              <button onClick={handleBtnLogOut} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+              <button
+                onClick={handleBtnLogOut}
+                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+              >
                 Logout
               </button>
             </>

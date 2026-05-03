@@ -1,5 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -38,9 +39,12 @@ const UpdateProfilePage = () => {
       <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
         {/* Current Avatar */}
         <div className="flex justify-center mb-6">
-          <img
+          <Image
             src={user?.image || "/default-avatar.png"}
-            alt={user?.name}
+            alt={user?.name || "User"}
+            width={80}
+            height={80}
+            loading="eager"
             className="w-20 h-20 rounded-full border-4 border-gray-100 shadow-sm object-cover"
           />
         </div>

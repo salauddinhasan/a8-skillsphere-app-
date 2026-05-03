@@ -1,5 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BiEdit } from "react-icons/bi";
@@ -33,12 +34,14 @@ const ProfilePage = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <div className="grid grid-cols-12 gap-4 mb-6">
-
         {/* Left — Avatar Card */}
         <div className="col-span-12 md:col-span-4 bg-white border shadow-xl border-gray-200 rounded-2xl p-8 text-center">
-          <img
+          <Image
             src={user.image || "/default-avatar.png"}
             alt={user.name}
+            width={120}
+            height={120}
+            loading="eager"
             className="w-24 h-24 rounded-full border-4 border-gray-100 shadow-sm object-cover mx-auto mb-4"
           />
           <h1 className="text-2xl font-bold text-gray-800">{user.name}</h1>
@@ -83,7 +86,9 @@ const ProfilePage = () => {
                 Member Since
               </span>
               <span className="text-sm font-bold text-gray-800">
-                {user.createdAt ? new Date(user.createdAt).toISOString().split("T")[0] : "N/A"}
+                {user.createdAt
+                  ? new Date(user.createdAt).toISOString().split("T")[0]
+                  : "N/A"}
               </span>
             </li>
           </ul>
@@ -99,7 +104,6 @@ const ProfilePage = () => {
             </Link>
           </div>
         </div>
-
       </div>
     </div>
   );

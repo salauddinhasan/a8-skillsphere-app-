@@ -13,6 +13,7 @@ const ServicesCard = ({ course }) => {
           alt={course.title}
           width={600}
           height={400}
+          loading="eager"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
       </div>
