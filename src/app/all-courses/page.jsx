@@ -4,9 +4,12 @@ import Link from "next/link";
 const categories = ["All", "Development", "Design", "Security", "Database"];
 
 const AllCourses = async ({ searchParams }) => {
-  const res = await fetch("http://localhost:3000/data.json", {
-    next: { revalidate: 3600 },
-  });
+  const res = await fetch(
+    "https://skillsphere-project-phi.vercel.app//data.json",
+    {
+      cache: "no-store",
+    },
+  );
   const courses = await res.json();
 
   const params = await searchParams;

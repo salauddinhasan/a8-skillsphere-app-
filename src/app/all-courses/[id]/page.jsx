@@ -15,11 +15,14 @@ const CoursesDetails = async ({ params }) => {
   });
 
   if (!session) {
-   redirect(`/login?callbackUrl=/all-courses/${id}`);
+    redirect(`/login?callbackUrl=/all-courses/${id}`);
   }
 
   const res = await fetch(
-    "https://a8-skillsphere-app-mjfx.vercel.app/data.json",
+    "https://skillsphere-project-phi.vercel.app/data.json",
+    {
+      cache: "no-store",
+    },
   );
   const courses = await res.json();
   const course = courses.find((item) => item.id === parseInt(id));

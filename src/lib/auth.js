@@ -7,6 +7,7 @@ console.log(process.env.MONGODB_URL);
 const db = client.db("skillsphere");
 
 export const auth = betterAuth({
+  trustedOrigins: ['http://localhost:3000', 'https://skillsphere-project-phi.vercel.app'],
   emailAndPassword: {
     enabled: true,
   },
@@ -20,3 +21,4 @@ export const auth = betterAuth({
     client,
   }),
 });
+// https://skillsphere-project-phi.vercel.app/

@@ -2,9 +2,9 @@ import React from "react";
 
 const Trending = async () => {
   const res = await fetch(
-    "https://a8-skillsphere-app-mjfx.vercel.app/data.json",
+    "https://skillsphere-project-phi.vercel.app/data.json",
     {
-      next: { revalidate: 3600 },
+      cache: "no-store",
     },
   );
   const courses = await res.json();
@@ -44,7 +44,9 @@ const Trending = async () => {
                   </span>
                 </div>
 
-                <p className="bg-yellow-50 rounded-full w-20 flex justify-center">Trending</p>
+                <p className="bg-yellow-50 rounded-full w-20 flex justify-center">
+                  Trending
+                </p>
               </div>
             </div>
           ))}

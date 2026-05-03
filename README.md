@@ -4,7 +4,7 @@ A modern online learning platform where users can explore courses, watch lessons
 
 ## 🔗 Live URL
 
-[https://a8-skillsphere-app-mjfx.vercel.app](https://a8-skillsphere-app-mjfx.vercel.app)
+[https://skillsphere-project-phi.vercel.app/]
 
 ## ✨ Key Features
 

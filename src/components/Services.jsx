@@ -2,9 +2,12 @@ import React from "react";
 import ServicesCard from "./ServicesCard";
 
 const Services = async () => {
-  const res = await fetch("https://a8-skillsphere-app-mjfx.vercel.app/data.json", {
-    next: { revalidate: 3600 },
-  });
+  const res = await fetch(
+    "https://skillsphere-project-phi.vercel.app/data.json",
+    {
+      cache: "no-store",
+    },
+  );
   const courses = await res.json();
 
   return (
