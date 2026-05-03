@@ -2,7 +2,7 @@ import React from "react";
 
 const LearningPage = async () => {
   const res = await fetch(
-    "https://a8-skillsphere-app-mjfx.vercel.app/data.json",
+    "http://localhost:3000/data.json",
     {
       next: { revalidate: 3600 },
     },

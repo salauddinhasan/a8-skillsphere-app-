@@ -12,7 +12,7 @@ const Navbar = () => {
  
   const handleBtnLogOut = async() => {
     await authClient.signOut();
-    alert('Logout successful');
+    // alert('Logout successful');
   }
 
 

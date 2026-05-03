@@ -1,17 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
 
 const ServicesCard = ({ course }) => {
-  console.log(course)
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-      <div className="h-40 w-full overflow-hidden p-4 bg-sky-50">
-        <img
+      <div className="h-auto w-full overflow-hidden">
+        <Image
           src={course.image}
           alt={course.title}
-          className="w-full h-full rounded-lg object-cover group-hover:scale-110 transition-transform duration-500"
+          width={600}
+          height={400}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
       </div>
 
@@ -29,8 +31,8 @@ const ServicesCard = ({ course }) => {
 
         {/* Instructor */}
         <p className="text-sm text-gray-500">
-          by
-          <span className="font-medium text-gray-700">{course.instructor}</span>
+          by 
+          <span className="font-medium text-gray-700">{ course.instructor}</span>
         </p>
 
         {/* Rating & Level */}

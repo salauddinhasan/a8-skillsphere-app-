@@ -7,7 +7,7 @@
     "rating": 4.9,
     "level": "Advanced",
     "description": "Learn to build high-performance applications using the latest Next.js features and Turbopack.",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
+    "image": "https://i.ibb.co.com/93SpdzXs/6324929-df40.jpg",
     "category": "Development"
   },
   {
@@ -18,7 +18,7 @@
     "rating": 4.7,
     "level": "Intermediate",
     "description": "Create stunning and accessible user interfaces using HeroUI and Tailwind CSS components.",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
+    "image": "https://i.ibb.co.com/bgkKTYxg/maxresdefault.jpg",
     "category": "Design"
   },
   {
@@ -29,7 +29,7 @@
     "rating": 4.8,
     "level": "Intermediate",
     "description": "Implement secure authentication, social logins, and multi-session management easily.",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
+    "image": "https://i.ibb.co.com/PzfrbKqm/1565838-e54e-18.jpg",
     "category": "Security"
   },
   {
@@ -40,7 +40,7 @@
     "rating": 4.6,
     "level": "Advanced",
     "description": "Deep dive into React design patterns while utilizing the power of Gravity UI icons and tools.",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
+    "image": "https://i.ibb.co.com/qqnNwt4/6821783-3e01-3.jpg",
     "category": "Development"
   },
   {
@@ -51,7 +51,7 @@
     "rating": 4.9,
     "level": "Beginner",
     "description": "Start from scratch and learn to design scalable NoSQL databases for your modern web apps.",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
+    "image": "https://i.ibb.co.com/YFHwdyWr/6987295-6eae-2.jpg",
     "category": "Database"
   },
   {
@@ -62,7 +62,7 @@
     "rating": 4.5,
     "level": "Advanced",
     "description": "Master the art of optimizing React applications for lighting fast load times and SEO.",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
+    "image": "https://i.ibb.co.com/zVC9L06f/6718707-1a8a-2.jpg",
     "category": "Development"
   }
 ]

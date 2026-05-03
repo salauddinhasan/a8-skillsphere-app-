@@ -2,15 +2,11 @@ import React from "react";
 import ServicesCard from "./ServicesCard";
 
 const Services = async () => {
-  const res = await fetch(
-    "https://a8-skillsphere-app-mjfx.vercel.app/data.json",
-    {
-      next: { revalidate: 3600 },
-    },
-  );
+  const res = await fetch("http://localhost:3000/data.json", {
+    next: { revalidate: 3600 },
+  });
   const courses = await res.json();
 
-console.log(courses[0]); 
   return (
     <div className="max-w-7xl mx-auto bg-warning/5 py-10 rounded-l-2xl mt-5">
       <div className=" mb-8 border-l-4 border-sky-500 pl-4">

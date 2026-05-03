@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Saifur Rahman",
+    "role": "Next.js Expert",
+    "level": "Advanced",
+    "courses": 5,
+    "image": "/images/ins1.jpg",
+    "description": "Expert in building high-performance web applications with Next.js and React."
+  },
+  {
+    "id": 2,
+    "name": "Ayesha Siddiqua",
+    "role": "UI/UX Designer",
+    "level": "Intermediate",
+    "courses": 3,
+    "image": "/images/ins2.webp",
+    "description": "Passionate about creating beautiful and accessible user interfaces."
+  },
+  {
+    "id": 3,
+    "name": "Tanvir Hasan",
+    "role": "Security Engineer",
+    "level": "Advanced",
+    "courses": 4,
+    "image": "/images/ins3.avif",
+    "description": "Specialist in web security, authentication and full-stack development."
+  }
+]

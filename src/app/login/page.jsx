@@ -1,6 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { addToast } from "@heroui/toast";
+
 import {
   Button,
   FieldError,
@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { IoLogoGoogle } from "react-icons/io";
 import { GrGoogle } from "react-icons/gr";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
@@ -33,30 +34,25 @@ const LoginPage = () => {
     });
 
     if (error) {
-      alert(error.message || "Invalid email or password!");
-      // addToast({
-      //   title: "Login Failed",
-      //   description: error.message || "Invalid email or password!",
-      //   color: "danger",
-      // });
+      toast.error(error.message || "Invalid email or password!");
+      setLoading(false);
     } else {
-      // addToast({
-      //   title: "Welcome Back!",
-      //   description: "Successfully logged in to SkillSphere",
-      //   color: "success",
-      // });
-      router.push("/");
-      router.refresh();
+      toast.success("Welcome Back! Successfully logged in.");
+
+      setTimeout(() => {
+        router.push("/");
+        router.refresh();
+      }, 2000);
     }
     setLoading(false);
   };
 
-    const handleGoogleLogin = async () => {
-      await authClient.signIn.social({
-        provider: "google",
-        callbackURL: "/",
-      });
-    };
+  const handleGoogleLogin = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] py-10 px-4">
@@ -116,7 +112,7 @@ const LoginPage = () => {
         {/* Google Login */}
         <Button
           variant="outline"
-            onPress={handleGoogleLogin}
+          onPress={handleGoogleLogin}
           className="w-full font-medium"
           size="lg"
           startContent={<IoLogoGoogle className="text-xl" />}

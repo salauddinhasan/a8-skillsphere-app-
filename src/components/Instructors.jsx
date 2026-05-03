@@ -1,12 +1,10 @@
+import Image from "next/image";
 import React from "react";
 import { FaLinkedin, FaGithub, FaStar } from "react-icons/fa";
 
 const TopInstructors = async () => {
-  const res = await fetch(
-    "https://a8-skillsphere-app-mjfx.vercel.app/data.json",
-    { next: { revalidate: 3600 } },
-  );
-  const courses = await res.json();
+  const res = await fetch("http://localhost:3000/instructors.json");
+  const instructors = await res.json();
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-16 bg-sky-50">
@@ -17,19 +15,21 @@ const TopInstructors = async () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {courses.slice(0, 3).map((course) => (
+        {instructors.map((ins) => (
           <div
-            key={course.id}
+            key={ins.id}
             className="group relative bg-white border border-gray-100 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 text-center hover:-translate-y-2"
           >
             <span className="absolute top-4 right-4 bg-sky-100 text-sky-600 text-[10px] font-bold px-3 py-1 rounded-full uppercase">
-              {course.level}
+              {ins.level}
             </span>
 
             <div className="relative w-24 h-24 mx-auto mb-4">
-              <img
-                src={course.image}
-                alt={course.instructor}
+              <Image
+                src={ins.image}
+                alt={ins.name}
+                width={94}
+                height={94}
                 className="rounded-full w-full h-full object-cover border-4 border-white shadow-md group-hover:border-sky-200 transition-colors"
               />
               <div className="absolute -bottom-1 -right-1 bg-amber-400 text-white p-1.5 rounded-full border-2 border-white">
@@ -38,13 +38,13 @@ const TopInstructors = async () => {
             </div>
 
             <h4 className="text-xl font-bold text-gray-800 group-hover:text-sky-600 transition-colors">
-              {course.instructor}
+              {ins.name}
             </h4>
             <p className="text-sky-500 text-sm font-semibold mb-3">
-              {course.category} Expert
+              {ins.role} Expert
             </p>
             <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-5">
-              {course.description}
+              {ins.description}
             </p>
 
             <div className="flex justify-center gap-4 mb-6">

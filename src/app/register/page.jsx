@@ -16,6 +16,8 @@ import React, { useState } from "react";
 import { IoLogoGoogle } from "react-icons/io";
 import { GrGoogle } from "react-icons/gr";
 
+import { toast } from "react-toastify";
+
 const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -41,19 +43,13 @@ const RegisterPage = () => {
     console.log("error:", error);
 
     if (error) {
-      alert(error.message);
-      // addToast({
-      //   title: "Registration Failed",
-      //   description: error.message || "Something went wrong!",
-      //   color: "danger",
-      // });
+      // alert(error.message);
+      toast.error(error.message || "Registration failed!");
+       
     } else {
-      // addToast({
-      //   title: "Account Created!",
-      //   description: "Please login to continue.",
-      //   color: "success",
-      // });
-      router.push("/all-courses");
+       toast.success("Account created successfully!");
+      router.push("/login");
+      router.refresh();
     }
     setLoading(false);
   };
@@ -64,6 +60,7 @@ const RegisterPage = () => {
       provider: "google",
       callbackURL: "/",
     });
+     
   };
 
   return (
